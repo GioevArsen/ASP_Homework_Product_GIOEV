@@ -244,6 +244,7 @@ body {
 .product-card__info-btn-cart:hover,
 .product-details__info-btn-cart:hover {
    background: limegreen;
+    color: white;
    border: 2px solid black;
 }
 
@@ -312,6 +313,17 @@ body {
     font-weight: bold;
 }
 
+.cart-item__info-details-quantity {
+    font-weight: bold;
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 7px;
+}
+
 .cart-item__info-details-btn-plus_one,
 .cart-item__info-details-btn-minus_one {
     width: 40px;
@@ -363,7 +375,7 @@ body {
     align-items: center;
 }
 
-.item-cart__btn-back {
+.cart-item__btn-back{
     width: 200px;
     height: 40px;
     background: none;
@@ -371,8 +383,24 @@ body {
     border: 2px solid black;
 }
 
-.item-cart__btn-back:hover {
+.cart-item__btn-checkout {
+    width: 200px;
+    height: 40px;
+    background: none;
+    color: black;
+    border: 2px solid black;
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.cart-item__btn-back:hover {
     background: black;
+    color: white;
+    border: 2px solid black;
+}
+
+.cart-item__btn-checkout:hover {
+    background: limegreen;
     color: white;
     border: 2px solid black;
 }
@@ -382,4 +410,158 @@ body {
     display: block;
     font-size: 30px;
     font-weight: bold;
+}
+
+.order-form-container {
+    margin: 30px 300px 0 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    justify-content: space-between;
+}
+
+.order-form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    grid-column: span 2;
+}
+
+.order-form-group {
+    margin-bottom: 20px;
+}
+
+.order-form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.order-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.order-form-textarea {
+    height: 100px;
+    grid-column: span 2;
+    resize: none;
+}
+
+.comment {
+    grid-column: span 2;
+}
+
+.order-form-submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    grid-column: span 2;
+}
+
+.order-form-submit:hover {
+    background-color: #0056b3;
+}
+
+.order-product-cards-swipe-buttons {
+    position: relative;
+}
+
+.order-product-cards-container {
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: 30px 300px 0 300px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.order-product-cards {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    padding: 20px;
+}
+
+.order-product-card {
+    flex: 0 0 auto;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 3px solid black;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.60), 0 27px 26px rgba(0,0,0,0.14);
+}
+
+.order-product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.order-product-card-content {
+    padding: 10px;
+}
+
+.order-product-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+.order-product-card-price {
+    margin: 10px 0 0 0;
+    font-size: 17px;
+    color: black;
+}
+
+.order-product-card-price span {
+    font-size: 15px;
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.carousel-button-left {
+    position: absolute;
+    left: 200px;
+}
+
+.carousel-button-right {
+    right: 200px;
+    position: absolute;
+}
+
+.hide {
+    display: none;
 }

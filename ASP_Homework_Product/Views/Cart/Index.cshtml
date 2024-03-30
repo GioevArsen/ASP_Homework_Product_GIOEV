@@ -21,6 +21,7 @@
                         <div class="cart-item__info-details">
                             <p class="cart-item__info-details-price">@Model.ProductsInCart.Where(prod => prod.Id == product.Id).Select(prod => prod.Cost).Sum() $</p>
                             <a asp-controller="Cart" asp-action="Add" asp-route-productId="@product.Id" class="btn cart-item__info-details-btn-plus_one">+</a>
+                            <p class="cart-item__info-details-quantity">@Model.ProductsInCart.Where(prod => prod.Id == product.Id).Count()</p>
                             <a asp-controller="Cart" asp-action="Remove" asp-route-productId="@product.Id" class="btn cart-item__info-details-btn-minus_one">-</a>
                             <a asp-controller="Cart" asp-action="RemoveAll" asp-route-productId="@product.Id" class="btn cart-item__info-details-btn-delete"><img class="cart-item__info-details-btn-delete-img" src="~/images/delete.png" /></a>
                         </div>
@@ -28,7 +29,8 @@
                 </div>
             }
             <div class="cart__bottom">
-                <a href="/catalog" class="btn item-cart__btn-back">To catalog</a>
+                <a asp-controller="Catalog" asp-action="Index" class="btn cart-item__btn-back">To catalog</a>
+                <a asp-controller="Order" asp-action="Index" asp-route-userId="001" class="btn cart-item__btn-checkout">CHECKOUT</a>
                 <p class="cart-item__total">Total: @Model.TotalCost $</p>
             </div>
         </div>

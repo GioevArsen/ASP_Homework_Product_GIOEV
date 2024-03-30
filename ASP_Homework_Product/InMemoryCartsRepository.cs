@@ -1,5 +1,7 @@
 ﻿using ASP_Homework_Product.Models;
+using Microsoft.CodeAnalysis;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace ASP_Homework_Product
@@ -20,7 +22,7 @@ namespace ASP_Homework_Product
 
         public void RemoveCartFromRepository(Cart cart)
         {
-            Carts.Remove(cart);
+            Carts.Add(cart);
         }
 
         public Cart TryGetCartByUserId(string userId)
@@ -67,6 +69,14 @@ namespace ASP_Homework_Product
                 cart.ProductsInCart.RemoveAll(prod => prod.Id == product.Id);
             }
         }
+        public void ClearCart(string userId)
+        {
+            var cart = TryGetCartByUserId(userId);
+            if (carts.Contains(cart))
+            {
+                cart.ProductsInCart.Clear();
+            }
+        }
     }
 
     public interface ICartsRepository
@@ -84,5 +94,7 @@ namespace ASP_Homework_Product
         public void RemoveFromCart(Product product, string userId);
 
         public void RemoveIdenticalFromCart(Product product, string userId);
+
+        public void ClearCart(string userId);
     }
 }
