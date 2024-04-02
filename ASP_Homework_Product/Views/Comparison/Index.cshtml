@@ -1,0 +1,75 @@
+﻿@model ComparisonItem
+
+@{
+    ViewData["Title"] = " - Compare";
+}
+
+
+
+<div class="compare-container">
+    <div class="compare-left">
+        <img src=@Model.Product.ImagePath class="compare-left__img" alt=@Model.Product.Name />
+        <h3 class="compare-left__title">@Model.Product.Name</h3>
+        <p class="compare-left__description">@Model.Product.Description</p>
+        <p class="compare-left__price">@Model.Product.Cost $</p>
+    </div>
+    <div class="compare-right">
+        <div class="comparable-product">
+            <img src=@Model.ComparableProduct.ImagePath class="comparable-product__img" alt=@Model.ComparableProduct.Name />
+            <div class="comparable-product__info">
+                <h3 class="comparable-product__info-title">@Model.ComparableProduct.Name</h3>
+                <p class="comparable-product__info-description">@Model.ComparableProduct.Description</p>
+                <p class="comparable-product__info-price">@Model.ComparableProduct.Cost $</p>
+            </div>
+        </div>
+        <div class="comparasion-result">
+            @if(Model.Product.Id == Model.ComparableProduct.Id)
+            {
+                <p class="comparison-result__none">Pick any product you would like to compare with @Model.Product.Name</p>
+            }
+            else
+            {
+                <p class="comparison-result__price">
+                    <span style="color:dodgerblue">@Model.Product.Name </span>
+                    is 
+                    @if (Model.Product.Cost - Model.ComparableProduct.Cost < 0)
+                    {
+                        <span class="cheaper">
+                            @(Math.Abs(Model.Product.Cost - Model.ComparableProduct.Cost))$ cheaper
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="more-expensive">
+                            @(Math.Abs(Model.Product.Cost - Model.ComparableProduct.Cost))$ more expensive
+                        </span>
+                    }
+                    than
+                    <span style="color:dodgerblue">@Model.ComparableProduct.Name </span>
+                    </p>
+            }
+        </div>
+        <div class="comparison-list">
+            @foreach (var product in Model.ProductsRepository.Products.Where(product => product.Id != Model.Product.Id && product.Id != Model.ComparableProduct.Id).ToList())
+            {
+                <div class="comparison-list__card" data-url="/Comparison/Index?productId=@Model.Product.Id&compareId=@product.Id">
+                    <img src=@product.ImagePath class="comparison-list__card-img" alt=@Model.Product.Name />
+                    <h5 class="comparison-list__card-title">@product.Name</h5>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    let cards = document.querySelectorAll('.comparison-list__card');
+
+    for (let card of cards) {
+        card.onclick = () => {
+            var url = card.getAttribute('data-url');
+            window.location.href = url;
+        }
+    }
+</script>

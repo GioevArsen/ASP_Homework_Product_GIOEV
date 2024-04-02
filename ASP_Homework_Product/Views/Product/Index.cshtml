@@ -13,7 +13,8 @@
             <p class="product-details__info-description">@Model.Description</p>
             <div class="product-details__info-btns">
                 <p class="product-details__info-price">@(Model.Cost == 0 ? "Coming soon" : $"{Model.Cost} $")</p>
-                <a href="/catalog" class="btn btn-primary product-details__info-btn-back">To catalog</a>
+                <a href="/catalog" class="btn product-details__info-btn-back">To catalog</a>
+                <a asp-controller="Comparison" asp-action="Index" asp-route-productId="@Model.Id" class="btn product-details__info-btn-compare">Compare</a>
                 @if(Model.Cost == 0)
                 {
                     <a href="#" class="btn product-details__info-btn-unavailable">Soon</a>

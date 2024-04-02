@@ -168,7 +168,7 @@ body {
     gap: 20px;
     border: 5px solid black;
     border-radius: 20px;
-    box-shadow: 0 60px 80px rgba(0,0,0,0.60), 0 45px 26px rgba(0,0,0,0.14);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.60), 0 45px 26px rgba(0,0,0,0.14);
 }
 
 .product-card__img {
@@ -202,6 +202,19 @@ body {
     margin-top: auto;
 }
 
+.product-details__info-btn-compare {
+    background: dodgerblue;
+    color: white;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.product-details__info-btn-compare:hover {
+    background: deepskyblue;
+    color: white;
+    border: 2px solid black;
+}
+
 
 .product-card__info-btn-more,
 .product-card__info-btn-back,
@@ -210,7 +223,8 @@ body {
 .product-card__info-btn-cart,
 .product-details__info-btn-back,
 .product-details__info-btn-cart,
-.product-details__info-btn-unavailable {
+.product-details__info-btn-unavailable,
+.product-details__info-btn-compare {
     width: 150px;
 }
 
@@ -244,7 +258,7 @@ body {
 .product-card__info-btn-cart:hover,
 .product-details__info-btn-cart:hover {
    background: limegreen;
-    color: white;
+   color: white;
    border: 2px solid black;
 }
 
@@ -564,4 +578,131 @@ body {
 
 .hide {
     display: none;
+}
+
+.compare-container {
+    padding: 15px 50px 0 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.compare-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.compare-left__img {
+    border-radius: 20px;
+    width: 550px; 
+}
+
+.compare-left__title {
+    font-weight: bold;
+}
+
+.compare-left__description {
+    font-size: 18px;
+    text-align: center;
+}
+
+.compare-left__price {
+    font-weight: bold;
+    font-size: 24px;
+    border-bottom: 2px solid black;
+}
+
+.compare-right {
+}
+
+.comparable-product {
+    padding: 40px;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+    border-bottom-left-radius: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.comparable-product__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comparable-product__img {
+    width: 300px;
+    border-radius: 20px;
+}
+
+.comparable-product__info-description {
+    text-align: center
+}
+
+.comparison-result__none {
+    font-size: 18px;
+    margin: 16px 0;
+    font-weight: bold;
+}
+
+.comparison-result__price {
+    font-size: 18px;
+    margin: 16px 0;
+    font-weight: bold;
+}
+
+.comparison-result__price span.cheaper{
+    font-size: 18px;
+    margin: 16px 0;
+    color: green;
+}
+
+.comparison-result__price span.more-expensive{
+    font-size: 18px;
+    margin: 16px 0;
+    color: red;
+}
+
+.comparison-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-top: 5px solid black;
+    border-left: 5px solid black;
+    border-bottom: 5px solid black;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 20px;
+}
+
+.comparison-list__card {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding-top: 10px;
+}
+
+.comparison-list__card:hover {
+    opacity: 0.7;
+    background: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+.comparison-list__card-title {
+    text-align: center;
+}
+
+.comparison-list__card-img {
+    width: 150px;
+    border-radius: 20px;
 }
