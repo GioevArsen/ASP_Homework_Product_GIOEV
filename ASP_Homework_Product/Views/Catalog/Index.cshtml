@@ -13,6 +13,11 @@
             <div class="product-card">
                 <img src=@product.ImagePath class="product-card__img" asp-for=@product.ImagePath alt ="@product.Name">
                 <input hidden asp-for=@product.ImagePath />
+                <div class="product-card__hover-btn">
+                    <a asp-controller="Wishlist" asp-action="Add" asp-route-productId="@product.Id" class="btn product-card__info-btn-wishlist">
+                        <img src="/images/wishlist.png" class="product-card__hover-img" alt="@product.Name">
+                    </a>
+                </div>
                 <div class="product-card__info">
                     <h5 class="product-card__info-title">@product.Name</h5>
                     <p class="product-card__info-description">@product.Description</p>

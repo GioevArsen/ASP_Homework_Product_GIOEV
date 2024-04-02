@@ -27,6 +27,7 @@ namespace ASP_Homework_Product
             services.AddSingleton<IConstants, InMemoryConstants>();
             services.AddSingleton<IProductsRepository, InMemoryProductsRepository>();
             services.AddSingleton<IOrderRepository, InMemoryOrdersRepository>();
+            services.AddSingleton<IWishlistsRepository, InMemoryWishlistsRepositories>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -86,14 +86,16 @@ body {
     gap: 30px;
 }
 
-.cart-button {
+.cart-button,
+.wishlist-button {
     background: none;
     border: none;
     width: 40px;
     height: 40px;
 }
 
-.nav-cart-icon {
+.nav-cart-icon,
+.nav-wishlist-icon {
     width: 100%;
     height: auto;
 }
@@ -160,6 +162,7 @@ body {
 }
 
 .product-card {
+    position: relative;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -168,7 +171,7 @@ body {
     gap: 20px;
     border: 5px solid black;
     border-radius: 20px;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.60), 0 45px 26px rgba(0,0,0,0.14);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.60), 0 45px 26px rgba(0, 0, 0, 0.14);
 }
 
 .product-card__img {
@@ -202,6 +205,24 @@ body {
     margin-top: auto;
 }
 
+.product-card__hover-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card__hover-img {
+    width: 30px;
+    height: 30px;
+}
+
+.product-card:hover .product-card__hover-btn {
+    display: flex;
+}
+
 .product-details__info-btn-compare {
     background: dodgerblue;
     color: white;
@@ -215,6 +236,19 @@ body {
     border: 2px solid black;
 }
 
+.product-details__info-btn-wishlist {
+    background: none;
+    color: black;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.product-details__info-btn-wishlist:hover {
+    background: gold;
+    color: black;
+    border: 2px solid black;
+}
+
 
 .product-card__info-btn-more,
 .product-card__info-btn-back,
@@ -224,7 +258,9 @@ body {
 .product-details__info-btn-back,
 .product-details__info-btn-cart,
 .product-details__info-btn-unavailable,
-.product-details__info-btn-compare {
+.product-details__info-btn-compare,
+.product-details__info-btn-wishlist,
+.wishlist-item__info-details-btn-cart {
     width: 150px;
 }
 
@@ -705,4 +741,122 @@ body {
 .comparison-list__card-img {
     width: 150px;
     border-radius: 20px;
+}
+
+.wishlist {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px 20px 30px;
+    gap: 20px;
+}
+
+.wishlist-item {
+    display: flex;
+    border: 5px solid black;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.wishlist-item__img {
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
+    border-right: 5px solid black;
+}
+
+.wishlist-item__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 10px 10px 10px 0;
+    gap: 20px;
+    width: 100%;
+}
+
+.wishlist-item__info-title a {
+    color: black;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.wishlist-item__info-description {
+    text-align: left;
+}
+
+.wishlist-item__info-details {
+    display: flex;
+    width: 100%;
+    margin-top: auto;
+}
+
+.wishlist-item__info-details-price {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.wishlist-item__info-details-btn-delete {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.wishlist-item__info-details-btn-delete:hover{
+    background: red;
+    transform: scale(1.1);
+}
+
+.wishlist-item__info-details-btn-delete-img {
+    width: 100%;
+    height: auto;
+}
+
+.wishlist-item__info-details-btn-cart {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: auto;
+}
+
+.wishlist-item__info-details-btn-cart:hover{
+    background: limegreen;
+    transform: scale(1.1);
+}
+
+.wishlist-item__info-details-btn-cart-img {
+    width: 100%;
+    height: auto;
+}
+
+.wishlist__bottom {
+    display: flex;
+    align-items: center;
+}
+
+.wishlist-item__btn-back {
+    width: 200px;
+    height: 40px;
+    background: none;
+    color: black;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+
+.wishlist-item__btn-back:hover {
+    background: black;
+    color: white;
+    border: 2px solid black;
 }

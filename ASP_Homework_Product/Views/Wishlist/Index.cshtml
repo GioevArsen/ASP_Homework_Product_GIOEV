@@ -1,0 +1,39 @@
+﻿@model Wishlist;
+
+@{
+    ViewData["Title"] = " - My wishlist";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Wishlist</h1>
+
+    @if (Model != null && Model.ProductsInWishlist.Count > 0)
+    {
+        <h2>Don't wait! Make your wishes come true!</h2>
+        <div class="wishlist">
+            @foreach (var product in Model.ProductsInWishlist.Distinct().ToList())
+            {
+                <div class="cart-item">
+                    <img src=@product.ImagePath class="wishlist-item__img" asp-for=@product.ImagePath alt="@product.Name">
+                    <input hidden asp-for=@product.ImagePath />
+                    <div class="wishlist-item__info">
+                        <h5 class="wishlist-item__info-title"><a asp-controller="Product" asp-action="Index" asp-route-id="@product.Id">@product.Name</a></h5>
+                        <p class="wishlist-item__info-description">@product.Description</p>
+                        <div class="wishlist-item__info-details">
+                            <p class="wishlist-item__info-details-price">@Model.ProductsInWishlist.Where(prod => prod.Id == product.Id).Select(prod => prod.Cost).Sum() $</p>
+                            <a asp-controller="Cart" asp-action="Add" asp-route-productId="@product.Id" class="btn wishlist-item__info-details-btn-cart"><img class="cart-item__info-details-btn-delete-img" src="~/images/cart-icon.png" /></a>
+                            <a asp-controller="Wishlist" asp-action="Remove" asp-route-productId="@product.Id" class="btn wishlist-item__info-details-btn-delete"><img class="cart-item__info-details-btn-delete-img" src="~/images/delete.png" /></a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="wishlist__bottom">
+                <a asp-controller="Catalog" asp-action="Index" class="btn wishlist-item__btn-back">To catalog</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h2>Looks like you haven't wish of anything yet :(</h2>
+    }
+</div>
