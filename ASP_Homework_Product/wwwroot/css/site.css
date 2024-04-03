@@ -86,8 +86,7 @@ body {
     gap: 30px;
 }
 
-.cart-button,
-.wishlist-button {
+.cart-button {
     background: none;
     border: none;
     width: 40px;
@@ -99,8 +98,7 @@ body {
     align-items: center;
 }
 
-.nav-cart-icon,
-.nav-wishlist-icon {
+.nav-cart-icon {
     width: 100%;
     height: auto;
     width: 30px;
