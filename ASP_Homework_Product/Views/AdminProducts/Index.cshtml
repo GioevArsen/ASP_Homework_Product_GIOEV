@@ -26,7 +26,7 @@
                     <td class="admin__products-table-cell">@product.Id</td>
                     <td class="admin__products-table-cell"><img src=@product.ImagePath class="admin__products-table-cell-img" alt=@product.Name /></td>
                     <td class="admin__products-table-cell">@product.Name</td>
-                    <td class="admin__products-table-cell">@product.Cost $</td>
+                    <td class="admin__products-table-cell">@(product.Cost == 0 ? "Pre-order" : $"{product.Cost} $")</td>
                     <td class="admin__products-table-cell">
                         <a class="btn admin__products-edit-button" asp-controller="AdminProducts" asp-action="Edit" asp-route-productId="@product.Id">Edit</a>
                     </td>
