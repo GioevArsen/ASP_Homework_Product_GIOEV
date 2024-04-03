@@ -2,7 +2,7 @@
     ViewData["Title"] = " - Catalog";
 }
 
-@model InMemoryProductsRepository;
+@model List<Product>;
 
 <div class="text-center catalog">
     <h1 class="display-4">Games catalog</h1>
@@ -15,10 +15,10 @@
     </div>
 
     <div class="product-cards">
-        @foreach (var product in Model.GetProducts())
+        @foreach (var product in Model)
         {
             <div class="product-card">
-                <img src=@product.ImagePath class="product-card__img" asp-for=@product.ImagePath alt ="@product.Name">
+                <img src=@product.ImagePath class="product-card__img" asp-for=@product.ImagePath alt="@product.Name">
                 <input hidden asp-for=@product.ImagePath />
                 <div class="product-card__hover-btn">
                     <a asp-controller="Wishlist" asp-action="Add" asp-route-productId="@product.Id" class="btn product-card__info-btn-wishlist">
@@ -30,7 +30,7 @@
                     <p class="product-card__info-description">@product.Description</p>
                     <div class="product-card__info-btns">
                         <a asp-controller="Product" asp-action="Index" asp-route-id="@product.Id" class="btn product-card__info-btn-more">More</a>
-                        @if(product.Cost == 0)
+                        @if (product.Cost == 0)
                         {
                             <a href="#" class="btn product-card__info-btn-cart-unavailable">Pre-order soon</a>
                         }

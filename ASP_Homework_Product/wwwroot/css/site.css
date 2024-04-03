@@ -186,11 +186,38 @@ body {
     margin-left: auto;
 }
 
+.catalog-search-container {
+}
+
+.catalog-search-container input {
+    padding: 10px;
+    width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    height: 50px;
+}
+
+.catalog-search-container button {
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 50px;
+    font-size: 18px
+}
+
+.catalog-search-container button:hover {
+    background-color: #0056b3;
+}
+
 .product-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
+    margin-top: 30px;
 }
 
 .product-card {

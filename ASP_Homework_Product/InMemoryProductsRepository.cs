@@ -24,6 +24,7 @@ namespace ASP_Homework_Product
         public List<Product> Products
         {
             get { return products; }
+            set { products = value; }
         }
 
         public List<Product> GetProducts()
@@ -57,7 +58,7 @@ namespace ASP_Homework_Product
 
     public interface IProductsRepository
     {
-        List<Product> Products { get; }
+        List<Product> Products { get; set; }
 
         List<Product> GetProducts();
 
