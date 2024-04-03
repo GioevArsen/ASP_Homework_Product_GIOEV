@@ -24,7 +24,7 @@ namespace ASP_Homework_Product
         {
             services.AddControllersWithViews();
             services.AddSingleton<ICartsRepository, InMemoryCartsRepository>();
-            services.AddSingleton<IConstants, InMemoryConstants>();
+            services.AddSingleton<Constants>();
             services.AddSingleton<IProductsRepository, InMemoryProductsRepository>();
             services.AddSingleton<IOrderRepository, InMemoryOrdersRepository>();
             services.AddSingleton<IWishlistsRepository, InMemoryWishlistsRepositories>();

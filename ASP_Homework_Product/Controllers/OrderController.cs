@@ -13,9 +13,9 @@ namespace ASP_Homework_Product.Controllers
     {
         private readonly ICartsRepository cartsRepository;
         private readonly IOrderRepository ordersRepository;
-        private readonly IConstants constants;
+        private readonly Constants constants;
 
-        public OrderController(ICartsRepository cartsRepository, IOrderRepository orderRepository, IConstants constants)
+        public OrderController(ICartsRepository cartsRepository, IOrderRepository orderRepository, Constants constants)
         {
             this.cartsRepository = cartsRepository;
             this.ordersRepository = orderRepository;
@@ -28,6 +28,7 @@ namespace ASP_Homework_Product.Controllers
             return View(cart);
         }
 
+        [HttpPost]
         public IActionResult Submit(string customerName, string customerAddress, string customerPhone, string customerEmail, string customerComment)
         {
             var cart = cartsRepository.TryGetCartByUserId(constants.UserId);

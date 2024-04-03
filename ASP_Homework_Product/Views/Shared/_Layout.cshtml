@@ -21,13 +21,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Catalog" asp-action="Index">Catalog</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Wishlist" asp-action="Index">Wishlist</a>
+                        </li>
                     </ul>
                 </div>
-                <button class="wishlist-button">
-                    <a class="nav-wishlist-link" asp-controller="Wishlist" asp-action="Index"><img src="~/images/wishlist.png" class="nav-cart-icon" /></a>
-                </button>
                 <button class="cart-button">
                     <a class="nav-cart-link" asp-controller="Cart" asp-action="Index"><img src="~/images/cart-icon.png" class="nav-cart-icon" /></a>
+                    <p class="cart-items-amount">@await Component.InvokeAsync("Cart")</p>
                 </button>
             </div>
         </nav>

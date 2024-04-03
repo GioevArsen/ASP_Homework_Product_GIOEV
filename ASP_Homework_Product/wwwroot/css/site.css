@@ -94,10 +94,22 @@ body {
     height: 40px;
 }
 
+.cart-button {
+    display: flex;
+    align-items: center;
+}
+
 .nav-cart-icon,
 .nav-wishlist-icon {
     width: 100%;
     height: auto;
+    width: 30px;
+    height: 30px;
+}
+
+.cart-items-amount {
+    font-size: 20px;
+    margin: 0;
 }
 
 .product-details-container {

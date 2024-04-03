@@ -6,11 +6,11 @@ namespace ASP_Homework_Product.Controllers
 {
     public class CartController : Controller
     {
-        private readonly IConstants constants;
+        private readonly Constants constants;
         private readonly ICartsRepository cartsRepository;
         private readonly IProductsRepository productsRepository;
 
-        public CartController(IConstants constants, ICartsRepository cartsRepository, IProductsRepository productsRepository)
+        public CartController(Constants constants, ICartsRepository cartsRepository, IProductsRepository productsRepository)
         {
             this.constants = constants;
             this.cartsRepository = cartsRepository;

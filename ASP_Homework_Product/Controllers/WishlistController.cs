@@ -4,11 +4,11 @@ namespace ASP_Homework_Product.Controllers
 {
     public class WishlistController : Controller
     {
-        private readonly IConstants constants;
+        private readonly Constants constants;
         private readonly IWishlistsRepository wishlistsRepository;
         private readonly IProductsRepository productsRepository;
 
-        public WishlistController(IConstants constants, IWishlistsRepository wishlistsRepository, IProductsRepository productsRepository)
+        public WishlistController(Constants constants, IWishlistsRepository wishlistsRepository, IProductsRepository productsRepository)
         {
             this.constants = constants;
             this.wishlistsRepository = wishlistsRepository;
