@@ -1,0 +1,43 @@
+﻿@model InMemoryProductsRepository
+
+@{
+    ViewData["title"] = " - Admin - Products";
+}
+
+
+
+<div class="text-center admin-container">
+    <h1 class="display-4">Products</h1>
+    <table class="admin__products-table">
+        <thead>
+            <tr class="admin__products-table-header">
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Cost</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr class="admin__products-table-row">
+                    <td class="admin__products-table-cell">@product.Id</td>
+                    <td class="admin__products-table-cell"><img src=@product.ImagePath class="admin__products-table-cell-img" alt=@product.Name /></td>
+                    <td class="admin__products-table-cell">@product.Name</td>
+                    <td class="admin__products-table-cell">@product.Cost $</td>
+                    <td class="admin__products-table-cell">
+                        <a class="btn admin__products-edit-button" asp-controller="AdminProducts" asp-action="Edit" asp-route-productId="@product.Id">Edit</a>
+                    </td>
+                    <td class="admin__products-table-cell">
+                        <a class="btn admin__products-remove-button" asp-controller="AdminProducts" asp-action="Remove" asp-route-productId=@product.Id>Remove</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn admin__products-new-button" asp-controller="AdminProducts" asp-action="Create">Add a new game to catalog</a>
+
+    @await Html.PartialAsync("AdminPanel")
+</div>

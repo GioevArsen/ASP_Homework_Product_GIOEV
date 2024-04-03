@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = " - New product";
+}
+
+
+<div class="text-center">
+
+    <h1 class="display-4">New product</h1>
+
+
+    <div class="add-game-form-container">
+        <h1 class="add-game-form-title">Add new game to catalog</h1>
+        <form action="/AdminProducts/Add" method="post" class="add-game-form">
+            <div class="add-game-form-group">
+                <label for="name" class="add-game-form-label">Name</label>
+                <input type="text" id="name" name="name" class="add-game-form-input" required>
+            </div>
+            <div class="add-game-form-group">
+                <label for="cost" class="add-game-form-label">Cost</label>
+                <input type="text" id="cost" name="cost" onkeypress="validateInput(event)" class="add-game-form-input" required>
+            </div>
+            <div class="add-game-form-group comment">
+                <label for="description" class="add-game-form-label">Description</label>
+                <textarea id="description" name="description" class="add-game-form-input add-game-form-textarea"></textarea>
+            </div>
+            <button type="submit" class="add-game-form-submit">Confirm</button>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+
+    function validateInput(event) {
+
+        var inputValue = event.key;
+
+        var regex = /^[0-9.]+$/;
+
+        if (!regex.test(inputValue)) {
+            alert("Пожалуйста, введите только числа или точку.");
+            event.preventDefault();
+        }
+    }
+
+</script>

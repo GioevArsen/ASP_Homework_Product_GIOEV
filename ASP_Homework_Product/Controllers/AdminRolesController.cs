@@ -2,7 +2,7 @@
 
 namespace ASP_Homework_Product.Controllers
 {
-    public class AdminController : Controller
+    public class AdminRolesController : Controller
     {
         public IActionResult Index()
         {

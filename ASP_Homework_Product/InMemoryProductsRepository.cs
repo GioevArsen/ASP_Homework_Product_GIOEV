@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using ASP_Homework_Product.Models;
 
@@ -34,6 +35,24 @@ namespace ASP_Homework_Product
         {
             return Products.FirstOrDefault(product => product.Id == id);
         }
+
+        public void Remove(Product product)
+        {
+            products.Remove(product);
+        }
+
+        public void Add(Product product)
+        {
+            products.Add(product);
+        }
+
+        public void Edit(int productId, string name, decimal cost, string description)
+        {
+            var product = products.FirstOrDefault(product => product.Id == productId);
+            product.Name = name;
+            product.Cost = cost;
+            product.Description = description;
+        }
     }
 
     public interface IProductsRepository
@@ -43,5 +62,11 @@ namespace ASP_Homework_Product
         List<Product> GetProducts();
 
         Product TryGetById(int id);
+
+        void Remove(Product product);
+
+        void Add(Product product);
+
+        void Edit(int productId, string name, decimal cost, string description);
     }
 }

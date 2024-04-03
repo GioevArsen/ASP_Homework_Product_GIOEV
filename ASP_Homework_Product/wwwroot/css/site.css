@@ -1009,3 +1009,121 @@ body {
 .admin-container {
     position: relative;
 }
+
+.admin__products-table {
+    width: 90%;
+    margin: 55px 0 0 133px;
+    border-collapse: collapse;
+    border-left: 2px solid
+}
+
+.admin__products-table-header {
+    border-top: 1px solid black;
+    border-bottom: 3px solid black;
+    height: 40px;
+    font-size: 20px;
+}
+
+.admin__products-table-row {
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+.admin__products-table-cell-img {
+    width: 100px;
+}
+
+.admin__products-new-button {
+    width: 300px;
+    height: 50px;
+    margin: 30px auto 0;
+    background: red;
+    color: white;
+    font-size: 20px;
+    border: 2px solid black;
+}
+
+.admin__products-new-button:hover {
+    color: red;
+    background: none;
+    border: 2px solid red;
+}
+
+.admin__products-edit-button,
+.admin__products-remove-button {
+    width: 100px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+.admin__products-edit-button:hover {
+    background: gold;
+}
+
+.admin__products-remove-button:hover {
+    background: red;
+    color: white;
+}
+
+.add-game-form-container {
+    margin: 30px 300px 0 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.add-game-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    justify-content: space-between;
+}
+
+.add-game-form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    grid-column: span 2;
+}
+
+.add-game-form-group {
+    margin-bottom: 20px;
+}
+
+.add-game-form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.add-game-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-game-form-textarea {
+    height: 100px;
+    grid-column: span 2;
+    resize: none;
+}
+
+.comment {
+    grid-column: span 2;
+}
+
+.add-game-form-submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    grid-column: span 2;
+}
+
+.add-game-form-submit:hover {
+    background-color: #0056b3;
+}
