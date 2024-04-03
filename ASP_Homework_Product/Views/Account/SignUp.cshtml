@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = " - Sign Up";
+}
+
+<div class="text-center">
+    <div class="sign-up-container">
+        <h3 class="sign-up__title">SIGN UP</h3>
+        <form action="/Account/CreateNewAccount" method="post" class="sign-up__form">
+            <div class="sign-up__form-names-container">
+                <input type="text" name="name" class="sign-up__form-name" placeholder="Name" />
+                <input type="text" name="lastName" class="sign-up__form-lastname" placeholder="Last name" />
+            </div>
+            <input type="email" name="email" class="sign-up__form-email" placeholder="E-mail" />
+            <input type="password" class="sign-up__form-password" placeholder="Password" />
+            <input type="password" name="password" class="sign-up__form-password-repeat" placeholder="Repeat password" />
+            <div class="sign-up__form-remember">
+                <input type="checkbox" name="agreement" value="true"/>
+                <label>I agree to <a asp-controller="Home" asp-action="Privacy" target="_blank">Privacy Policy</a></label>
+            </div>
+            <button type="submit" class="sign-up__form-button">SIGN UP</button>
+        </form>
+        <p class="login__question">Already a member? <a class="login-register-link" asp-controller="Account" asp-action="LogIn">Log in now</a></p>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = " - Log in";
+}
+
+<div class="text-center">
+    <div class="login-container">
+        <img src="/images/pfp-icon.jpg" class="login__img"/>
+        <h3 class="login__title">LOGIN</h3>
+        <form action="/Account/LogIntoAccount" method="post" class="login__form">
+            <input type="text" name="login" class="login__form-login" placeholder="Login" />
+            <input type="password" name="password" class="login__form-password" placeholder="Password" />
+            <div class="login__form-remember">
+                <input type="checkbox" name="remember" value="true"/>
+                <label>Remember me</label>
+            </div>
+            <button type="submit" class="login__form-button">LOGIN</button>
+        </form>
+        <p class="login__question">Not a member? <a class="login-register-link" asp-controller="Account" asp-action="SignUp">Join us now</a></p>
+    </div>
+</div>

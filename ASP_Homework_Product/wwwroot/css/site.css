@@ -870,3 +870,116 @@ body {
     color: white;
     border: 2px solid black;
 }
+
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 200px
+}
+
+.login__img {
+    width: 100px;
+}
+
+.login__title {
+    margin: 20px 0 0 0;
+    font-weight: bold;
+}
+
+.login__form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px
+}
+
+.login__form-login,
+.login__form-password {
+    background: lightgray;
+    width: 100%;
+    height: 40px;
+    border: none;
+    text-indent: 15px;
+}
+
+.login__form-button {
+    align-self: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+
+.login__form-button:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.login__question {
+    margin: 30px 0 0 0;
+}
+
+.sign-up-container {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 200px
+}
+
+.sign-up__img {
+    width: 100px;
+}
+
+.sign-up__title {
+    margin: 20px 0 0 0;
+    font-weight: bold;
+}
+
+.sign-up__form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px
+}
+
+.sign-up__form-names-container {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.sign-up__form-email,
+.sign-up__form-password,
+.sign-up__form-password-repeat,
+.sign-up__form-name,
+.sign-up__form-lastname {
+    background: lightgray;
+    width: 100%;
+    height: 40px;
+    border: none;
+    text-indent: 15px;
+}
+
+.sign-up__form-button {
+    align-self: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+
+.sign-up__form-button:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.sign-up__question {
+    margin: 30px 0 0 0;
+}
