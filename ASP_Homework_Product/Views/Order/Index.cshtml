@@ -1,4 +1,4 @@
-﻿@model Cart;
+﻿@model OrderAndCart;
 
 @{
     ViewData["Title"] = " - New order";
@@ -13,25 +13,31 @@
     <div class="order-form-container">
         <h1 class="order-form-title">Please fill out the fields below</h1>
         <form action="/Order/Submit" method="post" class="order-form">
+            <div asp-validation-summary="None" style="display: none"></div>
             <div class="order-form-group">
-                <label for="customerName" class="order-form-label">Your Name</label>
-                <input type="text" id="customerName" name="customerName" class="order-form-input" required>
+                <label asp-for="Order.CustomerName" for="customerName" class="order-form-label">Your Name</label>
+                <input asp-for="Order.CustomerName" type="text" id="customerName" class="order-form-input" required>
+                <span asp-validation-for="Order.CustomerName" class="login__form-input-warning"></span>
             </div>
             <div class="order-form-group">
-                <label for="customerAddress" class="order-form-label">Your Address</label>
-                <input type="text" id="customerAddress" name="customerAddress" class="order-form-input" required>
+                <label asp-for="Order.CustomerLastName" for="customerAddress" class="order-form-label">Your Lastname</label>
+                <input asp-for="Order.CustomerLastName" type="text" id="customerAddress" class="order-form-input" required>
+                <span asp-validation-for="Order.CustomerLastName" class="login__form-input-warning"></span>
             </div>
             <div class="order-form-group">
-                <label for="customerPhone" class="order-form-label">Your Phone</label>
-                <input type="tel" id="customerPhone" name="customerPhone" class="order-form-input" required>
+                <label asp-for="Order.CustomerPhone" for="customerPhone" class="order-form-label">Your Phone</label>
+                <input asp-for="Order.CustomerPhone" type="tel" id="customerPhone" class="order-form-input" required>
+                <span asp-validation-for="Order.CustomerPhone" class="login__form-input-warning"></span>
             </div>
             <div class="order-form-group">
-                <label for="customerEmail" class="order-form-label">Your E-mail</label>
-                <input type="email" id="customerEmail" name="customerEmail" class="order-form-input" required>
+                <label asp-for="Order.CustomerEmail" for="customerEmail" class="order-form-label">Your E-mail</label>
+                <input asp-for="Order.CustomerEmail" type="email" id="customerEmail" class="order-form-input" required>
+                <span asp-validation-for="Order.CustomerEmail" class="login__form-input-warning"></span>
             </div>
             <div class="order-form-group comment">
-                <label for="customerComment" class="order-form-label">Comment</label>
-                <textarea id="customerComment" name="customerComment" class="order-form-input order-form-textarea"></textarea>
+                <label asp-for="Order.CustomerComment" for="customerComment" class="order-form-label">Comment</label>
+                <textarea asp-for="Order.CustomerComment" id="customerComment" class="order-form-input order-form-textarea"></textarea>
+                <span asp-validation-for="Order.CustomerComment" class="login__form-input-warning"></span>
             </div>
             <button type="submit" class="order-form-submit">Confirm</button>
         </form>
@@ -42,13 +48,13 @@
         <div class="carousel-button carousel-button-right">&#10095;</div>
         <div class="order-product-cards-container">
             <div class="order-product-cards">
-                @foreach(var product in Model.ProductsInCart.Distinct().ToList())
+                @foreach(var product in Model.Cart.ProductsInCart.Distinct().ToList())
                 {
                     <div class="order-product-card">
                         <img src=@product.ImagePath alt=@product.ImagePath>
                         <div class="order-product-card-content">
                             <h3 class="order-product-card-title">@product.Name</h3>
-                            <p class="order-product-card-price">@Model.ProductsInCart.Where(prod => prod.Id == product.Id).Select(prod => prod.Cost).Sum() $ - <span>x@($"{Model.ProductsInCart.Where(prod => prod.Id == product.Id).Count()}")</span></p>
+                            <p class="order-product-card-price">@Model.Cart.ProductsInCart.Where(prod => prod.Id == product.Id).Select(prod => prod.Cost).Sum() $ - <span>x@($"{Model.Cart.ProductsInCart.Where(prod => prod.Id == product.Id).Count()}")</span></p>
                         </div>
                     </div>
                 }

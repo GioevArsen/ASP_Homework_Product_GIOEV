@@ -25,16 +25,28 @@ namespace ASP_Homework_Product.Controllers
         public IActionResult Index(string userId)
         {
             var cart = cartsRepository.TryGetCartByUserId(userId);
-            return View(cart);
+
+            var orderViewModel = new OrderAndCart
+            {
+                Cart = cart,
+                Order = new Order()
+            };
+            return View(orderViewModel);
         }
 
         [HttpPost]
-        public IActionResult Submit(string customerName, string customerAddress, string customerPhone, string customerEmail, string customerComment)
+        public IActionResult Submit(string customerName, string customerLastName, string customerPhone, string customerEmail, string customerComment)
         {
-            var cart = cartsRepository.TryGetCartByUserId(constants.UserId);
-            var newOrder = new Order(cart.TotalCost, cart.ProductsInCart, constants.UserId, customerName, customerAddress, customerPhone, customerEmail, customerComment);
-            ordersRepository.CreateOrder(newOrder);
-            return RedirectToAction("Success", new { orderId = newOrder.Id });
+            if (ModelState.IsValid)
+            {
+                var cart = cartsRepository.TryGetCartByUserId(constants.UserId);
+                var newOrder = new Order(cart.TotalCost, cart.ProductsInCart, constants.UserId, customerName, customerLastName, customerPhone, customerEmail, customerComment);
+                ordersRepository.CreateOrder(newOrder);
+                return RedirectToAction("Success", new { orderId = newOrder.Id });
+            }
+
+            //return RedirectToAction("Failed");
+            return RedirectToAction("Cart", "Index");
         }
 
         public IActionResult Success(int orderId)
