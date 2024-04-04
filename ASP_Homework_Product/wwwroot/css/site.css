@@ -943,6 +943,14 @@ body {
     gap: 10px
 }
 
+.login__form-input-container {
+    width: 100%;
+}
+
+.login__form-input-warning {
+    color: red;
+}
+
 .login__form-login,
 .login__form-password {
     background: lightgray;
@@ -995,12 +1003,21 @@ body {
     gap: 10px
 }
 
+.sign-up__form-input-container {
+    width: 100%;
+}
+
+.sign-up__form-input-warning {
+    color: red;
+}
+
 .sign-up__form-names-container {
     display: flex;
     gap: 10px;
     justify-content: space-between;
 }
 
+.sign-up__form-tel,
 .sign-up__form-email,
 .sign-up__form-password,
 .sign-up__form-password-repeat,

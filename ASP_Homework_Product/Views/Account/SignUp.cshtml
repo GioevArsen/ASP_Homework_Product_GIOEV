@@ -1,4 +1,6 @@
-﻿@{
+﻿@model User
+
+@{
     ViewData["Title"] = " - Sign Up";
 }
 
@@ -6,15 +8,35 @@
     <div class="sign-up-container">
         <h3 class="sign-up__title">SIGN UP</h3>
         <form action="/Account/CreateNewAccount" method="post" class="sign-up__form">
+            <div asp-validation-summary="None"></div>
             <div class="sign-up__form-names-container">
-                <input type="text" name="name" class="sign-up__form-name" placeholder="Name" />
-                <input type="text" name="lastName" class="sign-up__form-lastname" placeholder="Last name" />
+                <div class="sign-up__form-input-container">
+                    <input asp-for="Name" type="text" class="sign-up__form-name" placeholder="Name" />
+                    <span asp-validation-for="Name" class="sign-up__form-input-warning"></span>
+                </div>
+                <div class="sign-up__form-input-container">
+                    <input asp-for="LastName" type="text" class="sign-up__form-lastname" placeholder="Last name" />
+                    <span asp-validation-for="LastName" class="sign-up__form-input-warning"></span>
+                </div>
             </div>
-            <input type="email" name="email" class="sign-up__form-email" placeholder="E-mail" />
-            <input type="password" class="sign-up__form-password" placeholder="Password" />
-            <input type="password" name="password" class="sign-up__form-password-repeat" placeholder="Repeat password" />
+            <div class="sign-up__form-input-container">
+                <input asp-for="Phone" type="tel" class="sign-up__form-tel" placeholder="Phone" />
+                <span asp-validation-for="Phone" class="sign-up__form-input-warning"></span>
+            </div>
+            <div class="sign-up__form-input-container">
+                <input asp-for="Email" type="email" class="sign-up__form-email" placeholder="E-mail" />
+                <span asp-validation-for="Email" class="sign-up__form-input-warning"></span>
+            </div>
+            <div class="sign-up__form-input-container">
+                <input asp-for="NewPassword" type="password" class="sign-up__form-password" placeholder="Password" />
+                <span asp-validation-for="NewPassword" class="sign-up__form-input-warning"></span>
+            </div>
+            <div class="sign-up__form-input-container">
+                <input asp-for="NewPasswordConfirmation" type="password" class="sign-up__form-password-repeat" placeholder="Repeat password" />
+                <span asp-validation-for="NewPasswordConfirmation" class="sign-up__form-input-warning"></span>
+            </div>
             <div class="sign-up__form-remember">
-                <input type="checkbox" name="agreement" value="true"/>
+                <input type="checkbox" name="agreement" value="true" />
                 <label>I agree to <a asp-controller="Home" asp-action="Privacy" target="_blank">Privacy Policy</a></label>
             </div>
             <button type="submit" class="sign-up__form-button">SIGN UP</button>
